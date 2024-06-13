@@ -1,7 +1,9 @@
 const express = require('express');
+const connectDb = require('./config/db-connection');
 const dotenv = require('dotenv').config(); // .env faylni chaqirish
 const { errorHandler } = require('./middleware/error-handler');
 
+connectDb();
 const app = express();
 // .env fayldagi malumotlarni olish
 const port = process.env.PORT || 5000;
