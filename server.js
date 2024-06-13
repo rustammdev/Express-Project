@@ -6,12 +6,8 @@ const app = express();
 // .env fayldagi malumotlarni olish
 const port = process.env.PORT || 5000
 
-app.get("/api/contacts", (req, res) => {
-    // res.end("Get all contacts") // matn formatida qaytarishe
 
-    // JSON qiymat qaytarish
-    res.status(200).json({message: "Get all contacts"})
-})
+app.use("/api/contacts", require("./routes/contact-routes"))
 
 app.listen(port, () => {
     console.log(`Server running Port on ${port}`);
